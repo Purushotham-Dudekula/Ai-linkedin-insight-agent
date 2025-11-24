@@ -153,15 +153,3 @@ This will start both backend and frontend servers concurrently.
 - Configure your environment variables in `backend/.env`
 - The application stores data locally - no external database needed!
 
-## 🤝 Contributing
-
-This is a portfolio project. Feel free to fork and customize for your own use!
-
-## 📄 License
-
-MIT
-
----
-
-Built with ❤️ for showcasing AI and full-stack development skills.
-
