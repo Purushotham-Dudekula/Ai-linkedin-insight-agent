@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getHistory, deleteHistoryItem, deleteAllHistory, HistoryItem } from '../api';
 import ResultCard from './ResultCard';
 

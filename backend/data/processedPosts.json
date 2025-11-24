@@ -1,10 +1,10 @@
 [
   {
     "id": 3,
-    "originalPost": "Here is a hack that will make your application and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion in the space.",
-    "originalUrl": null,
-    "summary": "Here is a hack that will make your application and messages stand out. google to build something cool, share a demo",
-    "mainIdea": "tion and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion.",
+    "originalPost": "It's here! Now having seen model development from both sides, inside and out, it's been a wild ride! ;)\n\nTry it out.\n\nWe have sooo much coming up on jules.google!",
+    "originalUrl": "https://www.linkedin.com/posts/shivani-poddar_big-day-were-introducing-gemini-3-our-activity-7396594556940664832-2KG2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzs-1wBoHTWXYZu0F-c9MxbT-x5OcfpstM",
+    "summary": "Now having seen model development from both sides, inside and out, it's been a wild ride. ;)\n\nTry it out",
+    "mainIdea": "It's here! Now having seen model development from both sides, inside and out, it's been a wild ride! ;)\n\nTry it out.\n\nWe have sooo much coming up on jules.google!.",
     "actionableSteps": [
       "Consider how your skills align with the opportunity",
       "Follow up and maintain professional communication"
@@ -13,7 +13,7 @@
       "Develop a related project to demonstrate skills"
     ],
     "sentiment": {
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "confidence": 0.6,
       "emotions": [
         "professional",
@@ -35,14 +35,14 @@
     "qualityWeaknesses": [
       "Missing clear call to action"
     ],
-    "timestamp": "2025-11-15T09:15:33.650Z"
+    "timestamp": "2025-11-24T08:21:56.402Z"
   },
   {
     "id": 2,
-    "originalPost": "Here is a hack that will make your application and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion in the space.",
+    "originalPost": "Shivani Poddar\nGoogle Deepmind | Meta | Carnegie Mell…\n5d\n\nIt's here! Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day! We're introducing Gemini 3, our most intelligent model, that combines all of Gemini’s capabilities together so you can bring …more",
     "originalUrl": null,
-    "summary": "Here is a hack that will make your application and messages stand out. google to build something cool, share a demo",
-    "mainIdea": "tion and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion.",
+    "summary": "Shivani Poddar\nGoogle Deepmind | Meta | Carnegie Mell…\n5d\n\nIt's here. Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day",
+    "mainIdea": "rnegie Mell…\n5d\n\nIt's here! Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day! We're introducing Gemini 3, our most intell.",
     "actionableSteps": [
       "Consider how your skills align with the opportunity",
       "Follow up and maintain professional communication"
@@ -51,7 +51,7 @@
       "Develop a related project to demonstrate skills"
     ],
     "sentiment": {
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "confidence": 0.6,
       "emotions": [
         "professional",
@@ -60,6 +60,7 @@
       "tone": "professional"
     },
     "keyTopics": [
+      "AI",
       "Development"
     ],
     "targetAudience": "Professionals in the technology and software development industry",
@@ -73,26 +74,23 @@
     "qualityWeaknesses": [
       "Missing clear call to action"
     ],
-    "timestamp": "2025-11-15T09:14:04.645Z"
+    "timestamp": "2025-11-24T08:21:42.618Z"
   },
   {
     "id": 1,
-    "originalPost": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents.",
+    "originalPost": "Shivani Poddar\nGoogle Deepmind | Meta | Carnegie Mell…\n5d\n\nIt's here! Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day! We're introducing Gemini 3, our most intelligent model, that combines all of Gemini’s capabilities together so you can bring …more",
     "originalUrl": null,
-    "summary": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents. This post discusses important professional topics.",
-    "mainIdea": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents..",
+    "summary": "Shivani Poddar\nGoogle Deepmind | Meta | Carnegie Mell…\n5d\n\nIt's here. Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day",
+    "mainIdea": "rnegie Mell…\n5d\n\nIt's here! Now having seen model development from both sides, inside and out, it's been a wild …more\n\nSundar Pichai\nCEO at Google\n\nBig day! We're introducing Gemini 3, our most intell.",
     "actionableSteps": [
-      "Review the job requirements and prepare your application",
       "Consider how your skills align with the opportunity",
       "Follow up and maintain professional communication"
     ],
     "projectIdeas": [
-      "Build a code agent for a specific domain or use case",
-      "Create a demo showcasing agent capabilities",
       "Develop a related project to demonstrate skills"
     ],
     "sentiment": {
-      "sentiment": "positive",
+      "sentiment": "neutral",
       "confidence": 0.6,
       "emotions": [
         "professional",
@@ -101,11 +99,10 @@
       "tone": "professional"
     },
     "keyTopics": [
-      "Code Agents",
-      "Hiring",
+      "AI",
       "Development"
     ],
-    "targetAudience": "Job seekers and professionals interested in new opportunities",
+    "targetAudience": "Professionals in the technology and software development industry",
     "qualityScore": 7,
     "qualitySuggestions": [
       "Add a specific call to action"
@@ -116,6 +113,6 @@
     "qualityWeaknesses": [
       "Missing clear call to action"
     ],
-    "timestamp": "2025-11-15T09:12:56.535Z"
+    "timestamp": "2025-11-24T08:21:29.769Z"
   }
 ]
