@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import InputBox from './components/InputBox';
 import ResultCard from './components/ResultCard';
 import History from './components/History';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import { processPost, ProcessResponse } from './api';
+import { ProcessResponse } from './api';
 
 type Tab = 'process' | 'history';
 type AuthView = 'login' | 'signup' | null;

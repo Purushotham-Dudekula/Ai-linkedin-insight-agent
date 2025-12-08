@@ -5,5 +5,12 @@
     "password": "$2b$10$r/yoVx6rLHakK/6/g1h/f.eeWeCUadMVJhpxwU/gTRu0cLsX9lBC.",
     "name": "jules",
     "createdAt": "2025-11-15T06:15:00.235Z"
+  },
+  {
+    "id": 2,
+    "email": "Purushothamdudekula1022@gmail.com",
+    "password": "$2b$10$kdqO1vmQc7cR10blngb5COOy5a36VK.OAxX4lJI7dySD1Kf83dchO",
+    "name": "Dudekula Purushotham",
+    "createdAt": "2025-12-08T10:35:39.519Z"
   }
 ]

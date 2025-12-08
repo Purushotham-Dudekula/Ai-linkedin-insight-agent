@@ -1,4 +1,3 @@
-import React from 'react';
 import AdvancedInsights from './AdvancedInsights';
 import ExportButton from './ExportButton';
 
