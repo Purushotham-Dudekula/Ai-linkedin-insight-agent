@@ -33,7 +33,7 @@ function App() {
     }
   }, []);
 
-  const handleLogin = (token: string, userData: any) => {
+  const handleLogin = (_token: string, userData: any) => {
     setIsAuthenticated(true);
     setUser(userData);
     setAuthView(null);

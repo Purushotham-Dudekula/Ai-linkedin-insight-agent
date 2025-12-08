@@ -47,7 +47,7 @@ export default function ExportButton({ data }: ExportButtonProps) {
     
     if (data.projectIdeas && data.projectIdeas.length > 0) {
       text += `Project Ideas:\n`;
-      data.projectIdeas.forEach((idea, idx) => {
+      data.projectIdeas.forEach((idea) => {
         text += `- ${idea}\n`;
       });
       text += '\n';
