@@ -3,10 +3,58 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const JULES_API_KEY = process.env.JULES_API_KEY || process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY;
-// Use OpenRouter endpoint (OpenAI-compatible, works with many AI models)
-// You can override this with JULES_API_URL in .env if needed
-const JULES_API_URL = process.env.JULES_API_URL || process.env.OPENAI_API_URL || 'https://openrouter.ai/api/v1/chat/completions';
+// Auto-detect API provider based on key format and set appropriate endpoint
+function getApiConfig() {
+  const apiKey = process.env.JULES_API_KEY || process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY;
+  
+  if (!apiKey) {
+    return { url: null, model: null, isOpenRouter: false };
+  }
+
+  // Check if explicitly set in env
+  if (process.env.JULES_API_URL) {
+    const isOpenRouter = process.env.JULES_API_URL.includes('openrouter');
+    return {
+      url: process.env.JULES_API_URL,
+      model: isOpenRouter ? 'openai/gpt-3.5-turbo' : 'gpt-3.5-turbo',
+      isOpenRouter: isOpenRouter
+    };
+  }
+
+  if (process.env.OPENAI_API_URL) {
+    return {
+      url: process.env.OPENAI_API_URL,
+      model: 'gpt-3.5-turbo',
+      isOpenRouter: false
+    };
+  }
+
+  // Auto-detect based on key format
+  // OpenRouter keys start with "sk-or-v1" or "sk-or-"
+  if (apiKey.startsWith('sk-or-v1') || apiKey.startsWith('sk-or-')) {
+    return {
+      url: 'https://openrouter.ai/api/v1/chat/completions',
+      model: 'openai/gpt-3.5-turbo',
+      isOpenRouter: true
+    };
+  }
+
+  // OpenAI keys start with "sk-" (but not "sk-or-")
+  if (apiKey.startsWith('sk-')) {
+    return {
+      url: 'https://api.openai.com/v1/chat/completions',
+      model: 'gpt-3.5-turbo',
+      isOpenRouter: false
+    };
+  }
+
+  // Default to OpenAI
+  return {
+    url: 'https://api.openai.com/v1/chat/completions',
+    model: 'gpt-3.5-turbo',
+    isOpenRouter: false
+  };
+}
 
 /**
  * Call Jules API with a prompt
@@ -27,24 +75,42 @@ async function callJulesAPI(prompt, systemPrompt = null) {
       content: prompt
     });
 
-    const apiKey = JULES_API_KEY;
+    // Get API configuration (recalculate to ensure latest env vars)
+    const apiConfig = getApiConfig();
+    const apiKey = process.env.JULES_API_KEY || process.env.OPENAI_API_KEY || process.env.OPENROUTER_API_KEY;
+    
     if (!apiKey) {
-      throw new Error('API key is not set. Please set JULES_API_KEY or OPENAI_API_KEY in .env file');
+      // No API key - use fallback mode
+      console.log('⚠️  No API key found. Using fallback mode...');
+      const { processLinkedInPostFallback } = await import('./fallbackService.js');
+      throw new Error('FALLBACK_MODE'); // Special error to trigger fallback
     }
 
-    console.log(`Calling API: ${JULES_API_URL}`);
+    if (!apiConfig.url) {
+      throw new Error('API URL is not configured. Please set JULES_API_URL or OPENAI_API_URL in .env file');
+    }
+
+    console.log(`Calling API: ${apiConfig.url}`);
     console.log(`Using API key: ${apiKey.substring(0, 10)}...`);
+    console.log(`Provider: ${apiConfig.isOpenRouter ? 'OpenRouter' : 'OpenAI'}`);
+    console.log(`Model: ${apiConfig.model}`);
     
-    const response = await fetch(JULES_API_URL, {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+    };
+    
+    // Add required headers for OpenRouter
+    if (apiConfig.isOpenRouter) {
+      headers['HTTP-Referer'] = 'http://localhost:3001';
+      headers['X-Title'] = 'LinkedIn Insight Agent';
+    }
+    
+    const response = await fetch(apiConfig.url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-        'HTTP-Referer': 'http://localhost:3001', // OpenRouter requires this
-        'X-Title': 'LinkedIn Insight Agent' // Optional: identifies your app
-      },
+      headers: headers,
       body: JSON.stringify({
-        model: 'openai/gpt-3.5-turbo', // Using cheaper model (gpt-3.5-turbo instead of gpt-4)
+        model: apiConfig.model, // Auto-selected based on provider
         messages: messages,
         temperature: 0.7,
         max_tokens: 300 // Reduced tokens for cost efficiency
@@ -60,13 +126,18 @@ async function callJulesAPI(prompt, systemPrompt = null) {
         if (errorData.error) {
           errorMessage = errorData.error.message || errorText;
           
-          // Provide helpful message for credit errors
-          if (response.status === 402 || errorMessage.includes('credits')) {
+          // Provide helpful messages for common errors
+          if (response.status === 401 || errorMessage.includes('Incorrect API key') || errorMessage.includes('invalid_api_key') || errorMessage.includes('Unauthorized') || errorMessage.includes('User not found')) {
+            // Invalid API key - trigger fallback mode
+            throw new Error('INVALID_API_KEY');
+          } else if (response.status === 402 || errorMessage.includes('credits')) {
             errorMessage = 'Insufficient API credits. Please add credits to your OpenRouter account at https://openrouter.ai/settings/credits or use a different API key with credits.';
+          } else if (errorMessage.includes('User not found') || errorMessage.includes('user not found')) {
+            errorMessage = 'API key is invalid or the account does not exist. Please verify your OpenRouter API key at https://openrouter.ai/keys.';
           }
         }
       } catch (e) {
-        errorMessage = errorText;
+        errorMessage = errorText || `HTTP ${response.status} error`;
       }
       
       throw new Error(errorMessage);
@@ -272,9 +343,13 @@ export async function processLinkedInPost(postText) {
         qualityWeaknesses: qualityAnalysis.weaknesses || []
       };
     } catch (apiError) {
-      // If API fails due to credits, use fallback
-      if (apiError.message.includes('credits') || apiError.message.includes('402') || apiError.message.includes('Insufficient')) {
-        console.log('⚠️  API credits unavailable, using fallback mode (no API calls needed)...');
+      // If API fails due to credits or invalid key, use fallback
+      const errorMsg = apiError.message || '';
+      if (errorMsg.includes('credits') || errorMsg.includes('402') || errorMsg.includes('Insufficient') || 
+          errorMsg.includes('INVALID_API_KEY') || errorMsg.includes('FALLBACK_MODE') ||
+          errorMsg.includes('Invalid API key') || errorMsg.includes('Unauthorized') ||
+          errorMsg.includes('User not found') || errorMsg.includes('401')) {
+        console.log('⚠️  API unavailable (invalid key or no credits), using fallback mode (no API calls needed)...');
         const { processLinkedInPostFallback } = await import('./fallbackService.js');
         return processLinkedInPostFallback(postText);
       } else {

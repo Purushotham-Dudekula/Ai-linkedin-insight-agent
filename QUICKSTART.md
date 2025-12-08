@@ -1,4 +1,4 @@
-# ⚡ Quick Start
+# ⚡ Quick Start Guide
 
 ## 1. Backend Setup (Terminal 1)
 
@@ -7,12 +7,7 @@ cd backend
 npm install
 ```
 
-Create `backend/.env` file:
-```
-PORT=3001
-JULES_API_KEY=your_actual_api_key_here
-JULES_API_URL=https://api.jules.ai/v1/chat/completions
-```
+Create and configure `backend/.env` file with your environment variables.
 
 Start backend:
 ```bash
@@ -34,8 +29,4 @@ Go to: `http://localhost:5173`
 ## ✅ Done!
 
 Paste a LinkedIn post and click "Process Post" to see the magic happen!
-
----
-
-**Note:** Make sure to replace `your_actual_api_key_here` with your real Jules API key in `backend/.env`
 

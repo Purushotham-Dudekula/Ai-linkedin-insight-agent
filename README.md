@@ -8,13 +8,18 @@ Transform any LinkedIn post into structured, actionable insights using AI. This 
 - **Main Idea** - Extracted core message
 - **Actionable Steps** - 3 prioritized actions you can take
 - **Project Ideas** - Creative project suggestions inspired by the post
+- **Advanced Insights** - Sentiment analysis, key topics, target audience, quality score
 - **History Storage** - All processed posts saved locally (backend + localStorage)
+- **Delete History** - Delete individual posts or clear all history
+- **URL Support** - Process LinkedIn post URLs directly
+- **User Authentication** - Login and signup functionality
+- **Export Functionality** - Export insights as JSON or text
 
 ## 🚀 Tech Stack
 
 - **Frontend:** React + TypeScript + Tailwind CSS + Vite
 - **Backend:** Node.js + Express
-- **AI:** Jules API (multi-step reasoning pipeline)
+- **AI:** AI-powered insights (configurable)
 - **Storage:** File-based JSON database (no external DB required)
 
 ## 📂 Project Structure
@@ -43,7 +48,7 @@ ai-linkedin-insight-agent/
 ### Prerequisites
 
 - Node.js 18+ installed
-- Jules API key (or configure for your preferred AI API)
+- API key (optional - app works in fallback mode without it)
 
 ### Backend Setup
 
@@ -52,12 +57,7 @@ cd backend
 npm install
 ```
 
-Configure your environment variables in `backend/.env`:
-```
-PORT=3001
-JULES_API_KEY=your_api_key_here
-JULES_API_URL=https://api.jules.ai/v1/chat/completions
-```
+Configure your environment variables in `backend/.env` file.
 
 Start the backend server:
 ```bash
@@ -82,45 +82,45 @@ The frontend will run on `http://localhost:5173`
 
 ## 📖 Usage
 
-1. **Start both servers** (backend on port 3001, frontend on port 5173)
-2. **Open** `http://localhost:5173` in your browser
-3. **Paste** any LinkedIn post into the text area
-4. **Click** "Process Post" to generate insights
-5. **View** results: Summary, Main Idea, Actionable Steps, and Project Ideas
-6. **Check History** tab to see all previously processed posts
+### Quick Start (Both Servers)
+
+```bash
+# From project root
+npm start
+```
+
+This will start both backend and frontend servers concurrently.
+
+### Manual Start
+
+1. **Start Backend:**
+   ```bash
+   cd backend
+   npm start
+   ```
+
+2. **Start Frontend:**
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+3. **Open** `http://localhost:5173` in your browser
+4. **Sign up / Login** to access the application
+5. **Paste** any LinkedIn post text or URL into the input area
+6. **Click** "Process Post" to generate insights
+7. **View** results: Summary, Main Idea, Actionable Steps, Project Ideas, and Advanced Insights
+8. **Check History** tab to see all previously processed posts
+9. **Delete** individual posts or clear all history as needed
 
 ## 🔌 API Endpoints
 
-### POST `/api/process`
-
-Process a LinkedIn post and generate insights.
-
-**Request:**
-```json
-{
-  "postText": "Your LinkedIn post text here..."
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "data": {
-    "id": 1,
-    "originalText": "...",
-    "summary": "...",
-    "mainIdea": "...",
-    "actionableSteps": "...",
-    "projectIdeas": "...",
-    "timestamp": "2024-01-01T00:00:00.000Z"
-  }
-}
-```
-
-### GET `/api/history?limit=10`
-
-Get last N processed posts (default: 10)
+- `POST /api/process` - Process a LinkedIn post and generate insights
+- `GET /api/history` - Get processing history
+- `DELETE /api/history/:id` - Delete a specific post
+- `DELETE /api/history` - Delete all history
+- `POST /api/auth/signup` - Register a new user
+- `POST /api/auth/login` - Login with credentials
 
 ## 💾 Data Storage
 
@@ -140,7 +140,7 @@ Get last N processed posts (default: 10)
 ### Backend
 - Runs on Node.js with Express
 - Uses file-based JSON database for simplicity
-- Integrated with Jules API for AI processing
+- AI-powered processing with configurable providers
 
 ### Frontend
 - Built with Vite for fast development
@@ -150,8 +150,7 @@ Get last N processed posts (default: 10)
 
 ## 📝 Notes
 
-- Make sure to set your `JULES_API_KEY` in `backend/.env`
-- If using a different AI API, update the service in `backend/services/julesService.js`
+- Configure your environment variables in `backend/.env`
 - The application stores data locally - no external database needed!
 
 ## 🤝 Contributing

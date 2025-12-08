@@ -1,1 +1,121 @@
-[]
+[
+  {
+    "id": 3,
+    "originalPost": "Here is a hack that will make your application and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion in the space.",
+    "originalUrl": null,
+    "summary": "Here is a hack that will make your application and messages stand out. google to build something cool, share a demo",
+    "mainIdea": "tion and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion.",
+    "actionableSteps": [
+      "Consider how your skills align with the opportunity",
+      "Follow up and maintain professional communication"
+    ],
+    "projectIdeas": [
+      "Develop a related project to demonstrate skills"
+    ],
+    "sentiment": {
+      "sentiment": "positive",
+      "confidence": 0.6,
+      "emotions": [
+        "professional",
+        "engaging"
+      ],
+      "tone": "professional"
+    },
+    "keyTopics": [
+      "Development"
+    ],
+    "targetAudience": "Professionals in the technology and software development industry",
+    "qualityScore": 7,
+    "qualitySuggestions": [
+      "Add a specific call to action"
+    ],
+    "qualityStrengths": [
+      "Adequate length for engagement"
+    ],
+    "qualityWeaknesses": [
+      "Missing clear call to action"
+    ],
+    "timestamp": "2025-11-15T09:15:33.650Z"
+  },
+  {
+    "id": 2,
+    "originalPost": "Here is a hack that will make your application and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion in the space.",
+    "originalUrl": null,
+    "summary": "Here is a hack that will make your application and messages stand out. google to build something cool, share a demo",
+    "mainIdea": "tion and messages stand out.\n\nUse jules.google to build something cool, share a demo. Bonus if you use the public API and hack a product that demonstrates your ideas, ability to move fast and passion.",
+    "actionableSteps": [
+      "Consider how your skills align with the opportunity",
+      "Follow up and maintain professional communication"
+    ],
+    "projectIdeas": [
+      "Develop a related project to demonstrate skills"
+    ],
+    "sentiment": {
+      "sentiment": "positive",
+      "confidence": 0.6,
+      "emotions": [
+        "professional",
+        "engaging"
+      ],
+      "tone": "professional"
+    },
+    "keyTopics": [
+      "Development"
+    ],
+    "targetAudience": "Professionals in the technology and software development industry",
+    "qualityScore": 7,
+    "qualitySuggestions": [
+      "Add a specific call to action"
+    ],
+    "qualityStrengths": [
+      "Adequate length for engagement"
+    ],
+    "qualityWeaknesses": [
+      "Missing clear call to action"
+    ],
+    "timestamp": "2025-11-15T09:14:04.645Z"
+  },
+  {
+    "id": 1,
+    "originalPost": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents.",
+    "originalUrl": null,
+    "summary": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents. This post discusses important professional topics.",
+    "mainIdea": "There is a very interesting role I am hiring for on Jules to build the next vertical frontier of Code Agents..",
+    "actionableSteps": [
+      "Review the job requirements and prepare your application",
+      "Consider how your skills align with the opportunity",
+      "Follow up and maintain professional communication"
+    ],
+    "projectIdeas": [
+      "Build a code agent for a specific domain or use case",
+      "Create a demo showcasing agent capabilities",
+      "Develop a related project to demonstrate skills"
+    ],
+    "sentiment": {
+      "sentiment": "positive",
+      "confidence": 0.6,
+      "emotions": [
+        "professional",
+        "engaging"
+      ],
+      "tone": "professional"
+    },
+    "keyTopics": [
+      "Code Agents",
+      "Hiring",
+      "Development"
+    ],
+    "targetAudience": "Job seekers and professionals interested in new opportunities",
+    "qualityScore": 7,
+    "qualitySuggestions": [
+      "Add a specific call to action"
+    ],
+    "qualityStrengths": [
+      "Adequate length for engagement"
+    ],
+    "qualityWeaknesses": [
+      "Missing clear call to action"
+    ],
+    "timestamp": "2025-11-15T09:12:56.535Z"
+  }
+]
