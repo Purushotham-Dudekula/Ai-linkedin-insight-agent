@@ -12,7 +12,7 @@ type Tab = 'process' | 'history';
 type AuthView = 'login' | 'signup' | null;
 
 function App() {
-  const { theme } = useTheme();
+  useTheme();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authView, setAuthView] = useState<AuthView>('login');
   const [user, setUser] = useState<any>(null);
@@ -26,7 +26,7 @@ function App() {
     // Check if user is already logged in
     const token = localStorage.getItem('token');
     const savedUser = localStorage.getItem('user');
-    
+
     if (token && savedUser) {
       setIsAuthenticated(true);
       setUser(JSON.parse(savedUser));
@@ -97,7 +97,7 @@ function App() {
 
       if (data.success) {
         setResult(data.data);
-        
+
         // Save to localStorage
         const existingHistory = JSON.parse(
           localStorage.getItem('linkedinInsightHistory') || '[]'
@@ -161,21 +161,19 @@ function App() {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-1 inline-flex">
             <button
               onClick={() => setActiveTab('process')}
-              className={`px-6 py-2 rounded-md transition-colors ${
-                activeTab === 'process'
+              className={`px-6 py-2 rounded-md transition-colors ${activeTab === 'process'
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               Process Post
             </button>
             <button
               onClick={() => setActiveTab('history')}
-              className={`px-6 py-2 rounded-md transition-colors ${
-                activeTab === 'history'
+              className={`px-6 py-2 rounded-md transition-colors ${activeTab === 'history'
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-              }`}
+                }`}
             >
               History
             </button>
