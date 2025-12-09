@@ -89,7 +89,7 @@ export default function History() {
   if (loading) {
     return (
       <div className="w-full max-w-4xl mx-auto text-center py-8">
-        <p className="text-gray-600">Loading history...</p>
+        <p className="text-gray-600 dark:text-gray-400">Loading history...</p>
       </div>
     );
   }
@@ -97,7 +97,7 @@ export default function History() {
   if (error) {
     return (
       <div className="w-full max-w-4xl mx-auto text-center py-8">
-        <p className="text-red-600">{error}</p>
+        <p className="text-red-600 dark:text-red-400">{error}</p>
       </div>
     );
   }
@@ -105,7 +105,7 @@ export default function History() {
   if (history.length === 0) {
     return (
       <div className="w-full max-w-4xl mx-auto text-center py-8">
-        <p className="text-gray-600">No history yet. Process a post to see it here!</p>
+        <p className="text-gray-600 dark:text-gray-400">No history yet. Process a post to see it here!</p>
       </div>
     );
   }
@@ -113,7 +113,7 @@ export default function History() {
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-800">📚 History</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">📚 History</h2>
         <div className="flex gap-2">
           {history.length > 0 && (
             <button
@@ -125,7 +125,7 @@ export default function History() {
           )}
           <button
             onClick={loadHistory}
-            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
+            className="px-4 py-2 bg-gray-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm"
           >
             Refresh
           </button>
@@ -133,7 +133,7 @@ export default function History() {
       </div>
       
       {history.map((item) => (
-        <div key={item.id} className="border-t border-gray-200 pt-6 relative">
+        <div key={item.id} className="border-t border-gray-200 dark:border-gray-700 pt-6 relative">
           <button
             onClick={() => handleDelete(item.id)}
             disabled={deletingId === item.id}
@@ -144,11 +144,11 @@ export default function History() {
           </button>
           
           <div className="mb-4 pr-20">
-            <p className="text-sm text-gray-500 mb-2">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
               {new Date(item.timestamp).toLocaleString()}
             </p>
-            <div className="bg-gray-50 rounded-lg p-4">
-              <p className="text-gray-700 italic">"{item.originalPost.substring(0, 200)}..."</p>
+            <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+              <p className="text-gray-700 dark:text-gray-300 italic">"{item.originalPost.substring(0, 200)}..."</p>
             </div>
           </div>
           <ResultCard

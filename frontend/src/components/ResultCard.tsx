@@ -52,23 +52,23 @@ export default function ResultCard({
     <div className="w-full max-w-4xl mx-auto space-y-6">
       <ExportButton data={exportData} />
       {/* Summary */}
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-3">📝 Summary</h2>
-        <p className="text-gray-700 leading-relaxed">{summary}</p>
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">📝 Summary</h2>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{summary}</p>
       </div>
 
       {/* Main Idea */}
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-3">💡 Main Idea</h2>
-        <p className="text-gray-700 leading-relaxed">{mainIdea}</p>
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">💡 Main Idea</h2>
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{mainIdea}</p>
       </div>
 
       {/* Actionable Steps */}
-      <div className="bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-3">✅ Actionable Steps</h2>
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+        <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">✅ Actionable Steps</h2>
         <ol className="list-decimal list-inside space-y-2">
           {actionableSteps.map((step, index) => (
-            <li key={index} className="text-gray-700 leading-relaxed">
+            <li key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed">
               {step}
             </li>
           ))}
@@ -77,11 +77,11 @@ export default function ResultCard({
 
       {/* Project Ideas */}
       {projectIdeas && projectIdeas.length > 0 && (
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-3">🚀 Project Ideas</h2>
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+          <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-3">🚀 Project Ideas</h2>
           <ul className="list-disc list-inside space-y-2">
             {projectIdeas.map((idea, index) => (
-              <li key={index} className="text-gray-700 leading-relaxed">
+              <li key={index} className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 {idea}
               </li>
             ))}

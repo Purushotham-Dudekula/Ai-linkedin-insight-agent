@@ -4,12 +4,15 @@ import ResultCard from './components/ResultCard';
 import History from './components/History';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import ThemeToggle from './components/ThemeToggle';
 import { ProcessResponse } from './api';
+import { useTheme } from './contexts/ThemeContext';
 
 type Tab = 'process' | 'history';
 type AuthView = 'login' | 'signup' | null;
 
 function App() {
+  const { theme } = useTheme();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authView, setAuthView] = useState<AuthView>('login');
   const [user, setUser] = useState<any>(null);
@@ -71,13 +74,20 @@ function App() {
         ? { postUrl: postText.trim() }
         : { postText: postText.trim() };
 
-      const response = await fetch('/api/process', {
+      const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+      const response = await fetch(`${API_BASE_URL}/process`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(requestBody),
       });
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        throw new Error(`Invalid response format. Expected JSON but got: ${text.substring(0, 100)}`);
+      }
 
       const data = await response.json();
 
@@ -120,38 +130,41 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <header className="text-center mb-8">
           <div className="flex justify-between items-center mb-4">
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">Welcome, {user?.name || user?.email}</span>
+              <span className="text-sm text-gray-600 dark:text-gray-300">Welcome, {user?.name || user?.email}</span>
             </div>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 bg-gray-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm"
+              >
+                Logout
+              </button>
+            </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">
             🤖 AI LinkedIn Insight Agent
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             Transform LinkedIn posts into actionable insights
           </p>
         </header>
 
         {/* Tabs */}
         <div className="flex justify-center mb-8">
-          <div className="bg-white rounded-lg shadow-md p-1 inline-flex">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-1 inline-flex">
             <button
               onClick={() => setActiveTab('process')}
               className={`px-6 py-2 rounded-md transition-colors ${
                 activeTab === 'process'
                   ? 'bg-blue-600 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               Process Post
@@ -161,7 +174,7 @@ function App() {
               className={`px-6 py-2 rounded-md transition-colors ${
                 activeTab === 'history'
                   ? 'bg-blue-600 text-white'
-                  : 'text-gray-700 hover:bg-gray-100'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >
               History
@@ -180,8 +193,8 @@ function App() {
             />
 
             {error && (
-              <div className="w-full max-w-4xl mx-auto bg-red-50 border border-red-200 rounded-lg p-4">
-                <p className="text-red-800">❌ {error}</p>
+              <div className="w-full max-w-4xl mx-auto bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                <p className="text-red-800 dark:text-red-300">❌ {error}</p>
               </div>
             )}
 

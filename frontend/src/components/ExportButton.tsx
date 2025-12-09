@@ -92,13 +92,13 @@ export default function ExportButton({ data }: ExportButtonProps) {
     <div className="flex gap-2 justify-end mb-4">
       <button
         onClick={exportToJSON}
-        className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium"
+        className="px-4 py-2 bg-indigo-600 dark:bg-indigo-700 text-white rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors text-sm font-medium"
       >
         📥 Export JSON
       </button>
       <button
         onClick={exportToText}
-        className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+        className="px-4 py-2 bg-gray-600 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
       >
         📄 Export Text
       </button>

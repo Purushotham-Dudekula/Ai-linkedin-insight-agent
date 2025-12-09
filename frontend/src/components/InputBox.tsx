@@ -23,9 +23,9 @@ export default function InputBox({ value, onChange, onProcess, isLoading }: Inpu
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
         <div className="flex items-center justify-between mb-2">
-          <label htmlFor="post-input" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="post-input" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             {inputType === 'url' ? 'LinkedIn Post URL' : 'Paste LinkedIn Post'}
           </label>
           <div className="flex gap-2">
@@ -35,7 +35,7 @@ export default function InputBox({ value, onChange, onProcess, isLoading }: Inpu
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 inputType === 'text'
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
               Text
@@ -46,7 +46,7 @@ export default function InputBox({ value, onChange, onProcess, isLoading }: Inpu
               className={`px-3 py-1 text-xs rounded-md transition-colors ${
                 inputType === 'url'
                   ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
               URL
@@ -61,7 +61,7 @@ export default function InputBox({ value, onChange, onProcess, isLoading }: Inpu
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="https://www.linkedin.com/posts/..."
-            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
             disabled={isLoading}
           />
         ) : (
@@ -70,13 +70,13 @@ export default function InputBox({ value, onChange, onProcess, isLoading }: Inpu
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder="Paste your LinkedIn post text here or switch to URL mode..."
-            className="w-full h-48 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+            className="w-full h-48 p-4 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
             disabled={isLoading}
           />
         )}
 
         {detectedType === 'url' && inputType === 'text' && value.trim() && (
-          <p className="mt-2 text-sm text-blue-600">
+          <p className="mt-2 text-sm text-blue-600 dark:text-blue-400">
             💡 Detected URL - Switch to URL mode for better processing
           </p>
         )}
