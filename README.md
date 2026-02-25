@@ -2,6 +2,29 @@
 
 Transform any LinkedIn post into structured, actionable insights using AI. This full-stack application processes LinkedIn posts through a multi-step AI pipeline to generate summaries, main ideas, actionable steps, and project suggestions.
 
+## OUTPUT SCREENS
+<img width="1917" height="779" alt="Screenshot 2026-02-25 115713" src="https://github.com/user-attachments/assets/e7ce8b29-ef3d-4ae9-94f9-ff9fa1c3bd17" />
+<img width="1919" height="807" alt="Screenshot 2026-02-25 120149" src="https://github.com/user-attachments/assets/aeac4cf3-c479-433f-ab89-649097cc5ce2" />
+
+<img width="1865" height="629" alt="Screenshot 2026-02-25 115946" src="https://github.com/user-attachments/assets/0a7f480f-0929-43b0-b8c2-85655a106d80" />
+
+
+<img width="510" height="828" alt="Screenshot 2026-02-25 120014" src="https://github.com/user-attachments/assets/b1fb802a-f0bf-46ca-b4b0-c6cc483d5100" />
+
+<img width="1863" height="530" alt="Screenshot 2026-02-25 120044" src="https://github.com/user-attachments/assets/ac760ed0-1bb2-418c-9ecc-b40c71d26173" />
+
+<img width="516" height="793" alt="Screenshot 2026-02-25 120106" src="https://github.com/user-attachments/assets/fcd65660-6b71-4ca0-b72a-b197cd6d3298" />
+
+<img width="1869" height="484" alt="Screenshot 2026-02-25 120124" src="https://github.com/user-attachments/assets/9e707a85-ad0b-4a2a-8f3c-52e51a9c1c47" />
+
+
+
+
+
+
+
+
+
 ## ✨ Features
 
 - **Short Summary** - Concise 2-3 sentence summary
