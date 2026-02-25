@@ -6,6 +6,15 @@ Transform any LinkedIn post into structured, actionable insights using AI. This 
 <img width="1917" height="779" alt="Screenshot 2026-02-25 115713" src="https://github.com/user-attachments/assets/e7ce8b29-ef3d-4ae9-94f9-ff9fa1c3bd17" />
 <img width="1919" height="807" alt="Screenshot 2026-02-25 120149" src="https://github.com/user-attachments/assets/aeac4cf3-c479-433f-ab89-649097cc5ce2" />
 
+<img width="1854" height="678" alt="Screenshot 2026-02-25 121051" src="https://github.com/user-attachments/assets/542abdb4-3c75-4517-8994-4b02b703bcd3" />
+
+<img width="536" height="824" alt="Screenshot 2026-02-25 121146" src="https://github.com/user-attachments/assets/921aae76-6693-457f-9b5c-8efa4fac989c" />
+
+
+<img width="1879" height="544" alt="Screenshot 2026-02-25 121319" src="https://github.com/user-attachments/assets/68166185-ba10-4a71-8710-25f935367de7" />
+
+
+
 <img width="1865" height="629" alt="Screenshot 2026-02-25 115946" src="https://github.com/user-attachments/assets/0a7f480f-0929-43b0-b8c2-85655a106d80" />
 
 
