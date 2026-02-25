@@ -2,7 +2,12 @@
 
 Transform any LinkedIn post into structured, actionable insights using AI. This full-stack application processes LinkedIn posts through a multi-step AI pipeline to generate summaries, main ideas, actionable steps, and project suggestions.
 
+
 ## OUTPUT SCREENS
+<img width="827" height="629" alt="image" src="https://github.com/user-attachments/assets/fa1f2b1e-75d4-45ab-8ad5-93c9fec571aa" />
+
+<img width="1016" height="757" alt="Screenshot 2026-02-25 115555" src="https://github.com/user-attachments/assets/fb162d69-5a9d-420c-a8ca-8998acf09941" />
+
 <img width="1917" height="779" alt="Screenshot 2026-02-25 115713" src="https://github.com/user-attachments/assets/e7ce8b29-ef3d-4ae9-94f9-ff9fa1c3bd17" />
 <img width="1919" height="807" alt="Screenshot 2026-02-25 120149" src="https://github.com/user-attachments/assets/aeac4cf3-c479-433f-ab89-649097cc5ce2" />
 
